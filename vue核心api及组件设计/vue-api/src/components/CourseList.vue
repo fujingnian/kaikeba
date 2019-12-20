@@ -1,7 +1,5 @@
 <template>
   <div calss="course-list">
-    <h1>开课吧 - 购物车</h1>
-    <hr />
     <div class="list">
       <h2>添加课程</h2>
       <div>
@@ -31,7 +29,10 @@ export default {
   mounted() {},
   methods: {
     handleSubmit() {
-      console.log(this.name);
+      let { name, price } = this;
+      this.$parent.$emit("handleAddCourse", { name, price });
+      this.name = "";
+      this.price = "";
     }
   }
 };
